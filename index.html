@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tamara Cruz — receitas, conhecimento e ferramentas para quem quer crescer na confeitaria.">
+  <meta name="theme-color" content="#D7FF11">
+  <title>Tamara Cruz | Confeitaria, receitas e negócios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --lime:#D7FF11;
+      --black:#0B0B0B;
+      --dark:#141414;
+      --white:#FFF;
+      --soft:#F5F5F1;
+      --line:#E6E6DF;
+      --muted:#686862;
+      --shadow:0 24px 70px rgba(0,0,0,.10);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--soft);color:var(--black);font-family:"DM Sans",Arial,sans-serif}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1180px;margin:auto;padding:0 24px}
+    .topbar{
+      position:absolute;z-index:10;left:0;right:0;top:0;
+      padding:24px 0;color:#fff
+    }
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center}
+    .brand{font-weight:800;letter-spacing:.06em;font-size:14px;text-transform:uppercase}
+    .mini{font-size:12px;color:#d8d8d2}
+    .hero{
+      min-height:760px;position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 73% 42%, rgba(215,255,17,.30), transparent 30%),
+        linear-gradient(110deg,#080808 0%,#12170c 54%,#355100 100%);
+      color:#fff;
+    }
+    .hero:after{
+      content:"";position:absolute;inset:auto -5% -180px -5%;height:300px;
+      background:var(--soft);border-radius:50% 50% 0 0/35% 35% 0 0;
+    }
+    .hero-grid{
+      min-height:760px;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;
+      gap:30px;padding-top:60px
+    }
+    .hero-copy{position:relative;z-index:2;padding:60px 0}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      background:var(--lime);color:#111;padding:9px 13px;border-radius:999px;
+      font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase
+    }
+    .dot{width:6px;height:6px;border-radius:50%;background:#111}
+    h1{
+      font-family:"Playfair Display",Georgia,serif;font-weight:600;
+      font-size:clamp(48px,6.5vw,82px);line-height:.96;letter-spacing:-.045em;
+      margin:22px 0 22px;max-width:700px
+    }
+    h1 em{color:var(--lime);font-style:normal}
+    .hero-copy>p{max-width:570px;font-size:18px;line-height:1.65;color:#e3e3df;margin:0}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      min-height:52px;padding:0 21px;border-radius:999px;display:inline-flex;
+      align-items:center;justify-content:center;font-weight:800;font-size:14px;
+      transition:.2s;border:1px solid transparent
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-confeasy{background:var(--lime);color:#111;border:2px solid var(--lime);padding:0 28px;min-height:62px;font-size:15px;box-shadow:0 10px 35px rgba(215,255,17,.22)}
+    .btn-confeasy .cta-small{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:2px}
+    .confeasy-hero-cta{margin-top:28px;display:inline-flex;flex-direction:column;align-items:flex-start}
+    .choice.confeasy-choice{border:2px solid var(--lime);background:#111;color:#fff;box-shadow:0 18px 50px rgba(0,0,0,.16);transform:translateY(-5px)}
+    .choice.confeasy-choice:hover{transform:translateY(-9px);box-shadow:0 24px 55px rgba(0,0,0,.22)}
+    .choice.confeasy-choice .num,.choice.confeasy-choice p{color:#bdbdb5}
+    .choice.confeasy-choice .icon{color:var(--lime)}
+    .choice.confeasy-choice .arrow{color:var(--lime)}
+    .confeasy-feature{display:inline-flex;align-items:center;gap:8px;background:#1d1d1a;border:1px solid #37372f;color:#fff;border-radius:999px;padding:8px 12px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-top:16px}
+    .confeasy-feature b{color:var(--lime)}
+    .btn-lime{background:var(--lime);color:#111}
+    .btn-white{background:#fff;color:#111}
+    .btn-dark{background:#111;color:#fff}
+    .btn-ghost{border-color:#4a4a44;color:#fff}
+    .hero-photo{
+      align-self:end;position:relative;z-index:2;height:650px;display:flex;align-items:flex-end;justify-content:center
+    }
+    .photo-halo{
+      position:absolute;width:520px;height:520px;border-radius:50%;
+      background:rgba(215,255,17,.16);filter:blur(2px);bottom:45px
+    }
+    .hero-photo img{
+      position:relative;max-height:650px;width:auto;max-width:100%;
+      object-fit:contain;filter:drop-shadow(0 28px 35px rgba(0,0,0,.30));
+      mix-blend-mode:normal
+    }
+    .choices{position:relative;z-index:4;margin-top:-70px}
+    .choice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .choice{
+      background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;
+      box-shadow:var(--shadow);transition:.2s
+    }
+    .choice:hover{transform:translateY(-4px)}
+    .choice .num{font-size:11px;font-weight:800;color:#96968e;letter-spacing:.1em}
+    .choice .icon{font-size:27px;margin:18px 0 10px}
+    .choice h2{font-size:18px;margin:0 0 7px}
+    .choice p{font-size:13px;line-height:1.5;color:var(--muted);margin:0}
+    .choice .arrow{display:block;margin-top:17px;font-weight:800;font-size:12px}
+    section{padding:100px 0}
+    .section-head{max-width:720px;margin:0 auto 45px;text-align:center}
+    .kicker{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .section-head h2,.confeasy h2{
+      font-family:"Playfair Display",Georgia,serif;font-weight:600;
+      font-size:clamp(38px,5vw,60px);line-height:1.02;letter-spacing:-.04em;margin:13px 0
+    }
+    .section-head p{color:var(--muted);line-height:1.65;margin:0}
+    .recipes{background:var(--soft)}
+    .recipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .recipe{
+      background:#fff;border:1px solid var(--line);border-radius:24px;
+      min-height:0;display:flex;flex-direction:column;overflow:hidden;
+      box-shadow:0 8px 28px rgba(0,0,0,.045);transition:.2s
+    }
+    .recipe:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.10)}
+    .recipe-media{position:relative;height:205px;overflow:hidden;background:#111}
+    .recipe-media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s ease}
+    .recipe:hover .recipe-media img{transform:scale(1.045)}
+    .recipe-media:after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.35))}
+    .recipe-label{position:absolute;z-index:2;left:16px;top:16px;background:var(--lime);color:#111;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .recipe-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+    .recipe small{font-size:10px;font-weight:800;color:#8b8b84;letter-spacing:.12em;text-transform:uppercase}
+    .recipe h3{font-family:"Playfair Display",Georgia,serif;font-size:29px;line-height:1.05;font-weight:600;margin:12px 0 8px}
+    .recipe p{color:var(--muted);font-size:13px;line-height:1.5;margin:0;max-width:300px}
+    .recipe a{display:inline-flex;margin-top:auto;padding-top:22px;font-size:12px;font-weight:800}
+    .learn{background:#fff}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .product{
+      border:1px solid var(--line);border-radius:24px;padding:24px;background:#fff;
+      display:flex;flex-direction:column;min-height:370px;box-shadow:0 8px 30px rgba(0,0,0,.04)
+    }
+    .product-top{display:flex;justify-content:space-between;align-items:center}
+    .product-tag{background:#f0f0eb;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .product-no{font-size:11px;color:#999}
+    .product-art{
+      height:118px;border-radius:18px;margin:18px 0;
+      display:flex;align-items:flex-end;padding:18px;
+      background:linear-gradient(145deg,#121212,#313b0c);
+      color:#fff;position:relative;overflow:hidden
+    }
+    .product:nth-child(2) .product-art{background:linear-gradient(145deg,#171717,#6a2f0c)}
+    .product:nth-child(3) .product-art{background:linear-gradient(145deg,#121212,#5a4d10)}
+    .product:nth-child(4) .product-art{background:linear-gradient(145deg,#101010,#8a9b16)}
+    .product-art:after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-35px;top:-35px;background:var(--lime);opacity:.9}
+    .product-art span{position:relative;z-index:2;font-family:"Playfair Display",Georgia,serif;font-size:25px;line-height:1.02;max-width:190px}
+    .product h3{font-family:"Playfair Display",Georgia,serif;font-size:24px;line-height:1.05;margin:0 0 10px}
+    .product p{font-size:13px;line-height:1.55;color:var(--muted);margin:0}
+    .product .buy{margin-top:auto;padding-top:22px}
+    .product .buy a{width:100%}
+    .confeasy{
+      background:#0b0b0b;color:#fff;position:relative;overflow:hidden
+    }
+    .confeasy:before{
+      content:"";position:absolute;width:600px;height:600px;border-radius:50%;
+      background:var(--lime);opacity:.12;right:-250px;top:-230px
+    }
+    .confeasy-grid{display:grid;grid-template-columns:1fr .8fr;gap:60px;align-items:center;position:relative}
+    .confeasy h2{font-size:clamp(44px,5.5vw,72px)}
+    .confeasy h2 span{color:var(--lime)}
+    .confeasy p{color:#c9c9c2;line-height:1.7;max-width:620px}
+    .confeasy-card{
+      border:1px solid #34342f;border-radius:28px;padding:30px;
+      background:linear-gradient(145deg,#171717,#0d0d0d)
+    }
+    .mini-screen{
+      border-radius:18px;background:#232323;padding:18px;margin-bottom:18px;border:1px solid #3c3c37
+    }
+    .bars{display:flex;align-items:flex-end;gap:8px;height:105px}
+    .bars i{display:block;flex:1;background:var(--lime);border-radius:5px 5px 2px 2px}
+    .bars i:nth-child(1){height:34%}.bars i:nth-child(2){height:55%}.bars i:nth-child(3){height:46%}.bars i:nth-child(4){height:76%}.bars i:nth-child(5){height:92%}
+    .confeasy-card strong{font-size:19px}
+    .contact{background:var(--lime)}
+    .contact-box{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+    .contact h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(38px,5vw,58px);line-height:1.02;margin:0 0 12px}
+    .contact p{margin:0;max-width:620px;line-height:1.6}
+    footer{background:#0b0b0b;color:#888;padding:25px 0;font-size:12px}
+    footer .wrap{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr;min-height:auto;padding-top:90px}
+      .hero-copy{text-align:center;padding-bottom:0}.hero-copy>p{margin:auto}
+      .hero-actions{justify-content:center}.hero-photo{height:470px;margin-top:-20px}
+      .photo-halo{width:390px;height:390px}
+      .choice-grid{grid-template-columns:repeat(2,1fr)}
+      .product-grid{grid-template-columns:repeat(2,1fr)}
+      .confeasy-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      .wrap{padding:0 17px}
+      .hero{min-height:0}.hero:after{display:none}
+      h1{font-size:49px}
+      .hero-photo{height:390px}.hero-photo img{max-height:390px}
+      .photo-halo{width:310px;height:310px;bottom:20px}
+      .choices{margin-top:-10px}.choice-grid,.recipe-grid,.product-grid{grid-template-columns:1fr}
+      .choice{text-align:center}
+      section{padding:70px 0}
+      .recipe{min-height:215px}
+      .contact-box{grid-template-columns:1fr}
+      footer .wrap{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">Tamara Cruz</div>
+    <div class="mini">receitas • conhecimento • negócios</div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="dot"></span> Tamara Cruz • confeitaria</div>
+        <h1>Você já sabe fazer doces.<br><em>Agora, vamos fazer isso crescer.</em></h1>
+        <p>Receitas que chegaram a milhões, conteúdos para quem vive da confeitaria e ferramentas para transformar o que você faz em um negócio mais organizado e lucrativo.</p>
+        <div class="hero-actions">
+          <a class="btn btn-confeasy confeasy-hero-cta" href="https://confeasy.vercel.app/" target="_blank" rel="noopener"><span class="cta-small">Minha principal recomendação</span><span>✨ CONHEÇA O CONFEASY →</span></a>
+          <a class="btn btn-white" href="#receitas">🍰 Ver minhas receitas</a>
+        </div>
+      </div>
+      <div class="hero-photo" aria-label="Tamara Cruz como confeiteira">
+        <div class="photo-halo"></div>
+        <img src="tamara-confeiteira.png" alt="Tamara Cruz vestida de confeiteira em uma cozinha">
+      </div>
+    </div>
+  </section>
+
+  <section class="choices" aria-label="Escolha seu caminho">
+    <div class="wrap choice-grid">
+      <a class="choice" href="#receitas">
+        <span class="num">01 / GRATUITO</span>
+        <div class="icon">🍰</div>
+        <h2>Quero receitas</h2>
+        <p>Veja as receitas que fizeram história por aqui.</p>
+        <span class="arrow">VER RECEITAS →</span>
+      </a>
+      <a class="choice" href="#produtos">
+        <span class="num">02 / APRENDER</span>
+        <div class="icon">📚</div>
+        <h2>Quero aprender</h2>
+        <p>Escolha o conteúdo que combina com o seu momento.</p>
+        <span class="arrow">VER PRODUTOS →</span>
+      </a>
+      <a class="choice confeasy-choice" href="https://confeasy.vercel.app/" target="_blank" rel="noopener">
+        <span class="num">03 / PRINCIPAL</span>
+        <div class="icon">📊</div>
+        <h2>Quero fazer meu dinheiro sobrar</h2>
+        <p>Conheça o Confeasy: a melhor ferramenta de gestão para confeiteiras.</p>
+        <span class="confeasy-feature"><b>CONFEASY</b> Gestão sem complicação</span>
+        <span class="arrow">QUERO CONHECER →</span>
+      </a>
+      <a class="choice" href="https://wa.me/message/XCT6QUYN2MKIJ1">
+        <span class="num">04 / CONTATO</span>
+        <div class="icon">💬</div>
+        <h2>Quero falar com você</h2>
+        <p>Fale comigo diretamente pelo WhatsApp.</p>
+        <span class="arrow">ABRIR WHATSAPP →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="recipes" id="receitas">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">As que fizeram história</div>
+        <h2>Receitas que chegaram a milhões.</h2>
+        <p>Uma seleção das receitas que marcaram minha história na internet — e que continuam sendo favoritas.</p>
+      </div>
+      <div class="recipe-grid">
+        <article class="recipe"><div class="recipe-media"><img src="bala-de-caramelo.jpg" alt="Bala de caramelo"><span class="recipe-label">01 • Caramelo</span></div><div class="recipe-body"><small>Uma das que fizeram história</small><h3>Bala de caramelo</h3><p>Uma das receitas que ajudaram a construir essa história.</p><a href="https://www.instagram.com/tamaracruz.digital/reel/CncDiGPsSmc/" target="_blank" rel="noopener">VER NO INSTAGRAM →</a></div></article>
+        <article class="recipe"><div class="recipe-media"><img src="biscoito-amanteigado.jpg" alt="Biscoito amanteigado"><span class="recipe-label">02 • Clássico</span></div><div class="recipe-body"><small>Favorita por aqui</small><h3>Biscoito amanteigado</h3><p>Simples, delicado e um dos favoritos por aqui.</p><a href="https://www.instagram.com/tamaracruz.digital/reel/C0AFKpKvN0V/" target="_blank" rel="noopener">VER NO INSTAGRAM →</a></div></article>
+        <article class="recipe"><div class="recipe-media"><img src="brookies.jpg" alt="Brookies, brownie com cookie"><span class="recipe-label">03 • Brownie + cookie</span></div><div class="recipe-body"><small>Dois clássicos juntos</small><h3>Brookies</h3><p>Dois clássicos juntos em uma receita irresistível.</p><a href="https://www.instagram.com/tamaracruz.digital/reel/DPcNF5XDsb-/" target="_blank" rel="noopener">VER NO INSTAGRAM →</a></div></article>
+        <article class="recipe"><div class="recipe-media"><img src="creme-brulee.jpg" alt="Crème Brûlée"><span class="recipe-label">04 • Milhões de views</span></div><div class="recipe-body"><small>Uma das mais vistas</small><h3>Crème Brûlée</h3><p>Uma das receitas de maior alcance por aqui.</p><a href="https://www.instagram.com/tamaracruz.digital/reel/Cr0s2VYJdOo/" target="_blank" rel="noopener">VER NO INSTAGRAM →</a></div></article>
+        <article class="recipe"><div class="recipe-media"><img src="doce-de-leite.jpg" alt="Doce de leite de caramelo"><span class="recipe-label">05 • Favorita</span></div><div class="recipe-body"><small>Continua sendo lembrada</small><h3>Doce de leite de caramelo</h3><p>Uma receita que continua sendo lembrada.</p><a href="https://www.instagram.com/tamaracruz.digital/reel/ClO6JdePcmc/" target="_blank" rel="noopener">VER NO INSTAGRAM →</a></div></article>
+        <article class="recipe"><div class="recipe-media"><img src="nutella-fudge.jpg" alt="Nutella Fudge"><span class="recipe-label">06 • Chocolate</span></div><div class="recipe-body"><small>Uma receita que conquistou muita gente</small><h3>Nutella Fudge</h3><p>Uma receita que conquistou muita gente.</p><a href="https://www.instagram.com/tamaracruz.digital/reel/CltoC-yrcMK/" target="_blank" rel="noopener">VER NO INSTAGRAM →</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="learn" id="produtos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Escolha o próximo passo</div>
+        <h2>Não importa em que fase você está.</h2>
+        <p>Tem um conteúdo para quem está começando, para quem quer vender mais e para quem quer se especializar.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product">
+          <div class="product-top"><span class="product-tag">Comece aqui</span><span class="product-no">01</span></div>
+          <div class="product-art"><span>Confeiteira<br>Profissional</span></div>
+          <h3>Livro de Receitas para se Tornar uma Confeiteira Profissional</h3>
+          <p>Um caminho para quem quer transformar o amor pela confeitaria em habilidade e profissão.</p>
+          <div class="buy"><a class="btn btn-dark" href="https://go.hotmart.com/A43048588S?dp=1" target="_blank" rel="noopener">QUERO CONHECER →</a></div>
+        </article>
+        <article class="product">
+          <div class="product-top"><span class="product-tag">Venda mais</span><span class="product-no">02</span></div>
+          <div class="product-art"><span>Brigadeiros<br>Gourmet</span></div>
+          <h3>Brigadeiros Gourmet</h3>
+          <p>Aprenda receitas para criar brigadeiros com cara de produto que dá vontade de comprar.</p>
+          <div class="buy"><a class="btn btn-dark" href="https://go.hotmart.com/H77426406O?dp=1" target="_blank" rel="noopener">QUERO APRENDER →</a></div>
+        </article>
+        <article class="product">
+          <div class="product-top"><span class="product-tag">Alto valor</span><span class="product-no">03</span></div>
+          <div class="product-art"><span>Doces<br>Finos</span></div>
+          <h3>Doces Finos para Momentos Inesquecíveis</h3>
+          <p>Para quem quer entrar no universo dos doces finos e atender festas e ocasiões especiais.</p>
+          <div class="buy"><a class="btn btn-dark" href="https://go.hotmart.com/E78372503C?dp=1" target="_blank" rel="noopener">QUERO APRENDER →</a></div>
+        </article>
+        <article class="product">
+          <div class="product-top"><span class="product-tag">Nicho</span><span class="product-no">04</span></div>
+          <div class="product-art"><span>Bolos<br>Sem Glúten</span></div>
+          <h3>Receitas de Bolos Sem Glúten</h3>
+          <p>Uma seleção para quem quer trabalhar com um público específico e ampliar seu cardápio.</p>
+          <div class="buy"><a class="btn btn-dark" href="https://go.hotmart.com/U82023976E?dp=1" target="_blank" rel="noopener">QUERO VER →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="confeasy" id="confeasy">
+    <div class="wrap confeasy-grid">
+      <div>
+        <div class="kicker" style="color:var(--lime)">A ferramenta que eu mais quero que você conheça</div>
+        <h2>Chega de fazer conta no papel. <span>Faça sua confeitaria crescer.</span></h2>
+        <p>Fazer doces é só uma parte do negócio. Se você vende por encomenda, precisa saber seus custos, definir o preço certo, organizar pedidos e entender o lucro de verdade.</p>
+        <div class="hero-actions">
+          <a class="btn btn-confeasy" href="https://confeasy.vercel.app/" target="_blank" rel="noopener"><span>✨ CONHEÇA O CONFEASY — A MELHOR FERRAMENTA DE GESTÃO PARA CONFEITEIRAS →</span></a>
+        </div>
+      </div>
+      <div class="confeasy-card">
+        <div class="mini-screen">
+          <div style="font-size:11px;color:#aaa;margin-bottom:12px">VISÃO GERAL DA CONFEITARIA</div>
+          <div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <strong>Menos conta no papel.<br>Mais clareza para decidir.</strong>
+        <p style="font-size:13px;color:#999;line-height:1.5">Pedidos • Receitas • Estoque • Financeiro • Marketing com IA</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="wrap contact-box">
+      <div>
+        <h2>Quer falar comigo?</h2>
+        <p>Se você chegou até aqui e quer conversar sobre confeitaria, conteúdo ou algum dos meus produtos, pode me chamar.</p>
+      </div>
+      <a class="btn btn-dark" href="https://wa.me/message/XCT6QUYN2MKIJ1">FALAR NO WHATSAPP →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>TAMARA CRUZ</span>
+    <span>Receitas • conhecimento • negócios</span>
+  </div>
+</footer>
+
+</body>
+</html>
